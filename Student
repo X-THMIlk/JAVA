@@ -1,0 +1,53 @@
+package quan_li_sinh_vien;
+
+class student extends human {
+    private String studentID;
+    private String major;
+    private String userName;
+    private String passWord;
+
+    public student() {
+        super();
+    }
+
+    public student(String name, String birthDay, String gender, String id, String studentID, String major,
+            String userName, String passWord) {
+        super(name, birthDay, gender, id);
+        this.studentID = studentID;
+        this.major = major;
+        this.userName = userName;
+        this.passWord = passWord;
+    }
+
+    public String getStudentID() {
+        return this.studentID;
+    }
+
+    public void setStudentID(String studentID) {
+        this.studentID = studentID;
+    }
+
+    public String getMajor() {
+        return this.major;
+    }
+
+    public void setMajor(String major) {
+        this.major = major;
+    }
+
+    public String getUserName() {
+        return this.userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassWord() {
+        return this.passWord;
+    }
+
+    public void setPassWord(String passWord) {
+        this.passWord = passWord;
+    }
+}
