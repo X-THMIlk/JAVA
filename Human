@@ -1,0 +1,50 @@
+package quan_li_sinh_vien;
+
+class human {
+    private String name;
+    private String birthDay;
+    private String gender;
+    private String id;
+
+    public human() {
+    }
+
+    public human(String name, String birthDay, String gender, String id) {
+        this.name = name;
+        this.birthDay = birthDay;
+        this.gender = gender;
+        this.id = id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getBirthDay() {
+        return this.birthDay;
+    }
+
+    public void setBirthDay(String birthDay) {
+        this.birthDay = birthDay;
+    }
+
+    public String getGender() {
+        return this.gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+}
