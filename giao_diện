@@ -1,0 +1,11 @@
+package quan_li_sinh_vien;
+
+public interface giao_dien {
+    student inputStudent();
+
+    void inputListStu();
+
+    void hienThiTT(student a);
+
+    void hienThiAll();
+}
