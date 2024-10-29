@@ -1,0 +1,70 @@
+package quan_li_sinh_vien;
+
+import java.util.Scanner;
+
+public class studentFinal {
+    public static void main(String[] args) {
+        studentHandle h = new studentHandle(100);
+        int choose;
+
+        do {
+            System.out.println("_______________MENU_______________");
+            System.out.println("1. Nhập danh sách sinh viên");
+            System.out.println("2. Hiển thị danh sách sinh viên");
+            System.out.println("3. Thêm sinh viên");
+            System.out.println("4. Sửa thông tin sinh viên: ");
+            System.out.println("\t4.1. Sửa thông tin theo tên");
+            System.out.println("\t4.2. Sửa thông tin theo MSV");
+            System.out.println("5. Xóa thông tin sinh viên: ");
+            System.out.println("\t5.1. Xóa thông tin theo tên");
+            System.out.println("\t5.2. Xóa thông tin theo MSV");
+            System.out.println("6. Tìm thông tin sinh viên: ");
+            System.out.println("\t6.1. Tìm thông tin theo tên");
+            System.out.println("\t6.1. Tìm thông tin theo MSV");
+            System.out.println("0. Thoát khỏi chương trình!");
+            System.out.println("Chọn đi em!!!");
+            Scanner it = new Scanner(System.in);
+            choose = it.nextInt();
+            if (choose == 1) {
+                h.inputListStu();
+            }
+            if (choose == 2) {
+                h.hienThiAll();
+            }
+            if (choose == 3) {
+                student a = h.inputStudent();
+                h.getMana().addStudent(a);
+            }
+            if (choose == 4) {
+                System.out.println("Nhập tiếp lựa chọn: ");
+                choose = it.nextInt();
+                if (choose == 41) {
+                    h.getMana().updateStudentByName(h.getMana().getStu());
+                }
+                if (choose == 42) {
+                    h.getMana().updateStudentByStuID(h.getMana().getStu());
+                }
+            }
+            if (choose == 5) {
+                System.out.println("Nhập tiếp lựa chọn: ");
+                choose = it.nextInt();
+                if (choose == 51) {
+                    h.getMana().deleteStudentByStuName(h.getMana().getStu());
+                }
+                if (choose == 52) {
+                    h.getMana().deleteStudentByStuID(h.getMana().getStu());
+                }
+            }
+            if (choose == 6) {
+                System.out.println("Nhập tiếp lựa chọn: ");
+                choose = it.nextInt();
+                if (choose == 61) {
+                    h.getMana().searchStudentByName(h.getMana().getStu());
+                }
+                if (choose == 62) {
+                    h.getMana().searchStudentByStudentId(h.getMana().getStu());
+                }
+            }
+        } while (choose != 0);
+    }
+}
