@@ -1,0 +1,213 @@
+package quan_li_sinh_vien;
+
+import java.util.Scanner;
+
+public class studentManager {
+    private student[] stu;
+    private int size;
+
+    public student[] getStu() {
+        return this.stu;
+    }
+
+    public void setStu(student[] stu) {
+        this.stu = stu;
+    }
+
+    public int getSize() {
+        return this.size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public studentManager(int maxStudent) {
+        stu = new student[maxStudent];
+        size = 0;
+    }
+
+    public void addStudent(student a) {
+        if (size < stu.length) {
+            stu[size] = a;
+            size++;
+            System.out.println("Thêm sinh viên thành công!");
+        } else {
+            System.out.println("Mảng đã đầy, không thể thêm sinh viên mới.");
+        }
+    }
+
+    public void updateStudentByStuID(student[] stu) {
+        Scanner it = new Scanner(System.in);
+        System.out.println("Nhập mã sinh viên cần sửa: ");
+        String studentID = it.nextLine();
+        for (int i = 0; i < stu.length; i++) {
+            if (stu[i].getStudentID().equals(studentID)) {
+                System.out.print("Họ và tên: ");
+                String fullName = it.nextLine();
+                stu[i].setName(fullName);
+                System.out.print("Ngày sinh: ");
+                String dateOfBirth = it.nextLine();
+                stu[i].setBirthDay(dateOfBirth);
+                System.out.print("Giới tính: ");
+                String gender = it.nextLine();
+                stu[i].setGender(gender);
+                System.out.print("CCCD: ");
+                String cccd = it.nextLine();
+                stu[i].setId(cccd);
+                System.out.print("Mã sinh viên: ");
+                String studentId = it.nextLine();
+                stu[i].setStudentID(studentId);
+                System.out.print("Ngành nghề: ");
+                String major = it.nextLine();
+                stu[i].setMajor(major);
+                System.out.print("Tên tài khoản: ");
+                String accountName = it.nextLine();
+                stu[i].setUserName(accountName);
+                System.out.print("Mật khẩu tài khoản: ");
+                String accountPassword = it.nextLine();
+                stu[i].setPassWord(accountPassword);
+                System.out.println("Cập nhật thành công!");
+                stu[i] = new student(fullName, dateOfBirth, gender, studentId, studentId, major, accountName,
+                        accountPassword);
+                System.out.println("Cập nhật thành công!");
+                return;
+            }
+        }
+        System.out.println("Không tìm thấy sinh viên!");
+    }
+
+    public void updateStudentByName(student[] stu) {
+        Scanner it = new Scanner(System.in);
+        System.out.println("Nhập tên sinh viên cần sửa: ");
+        String studentName = it.nextLine();
+        for (int i = 0; i < stu.length; i++) {
+            if (stu[i].getName().equals(studentName)) {
+                System.out.print("Họ và tên: ");
+                String fullName = it.nextLine();
+                stu[i].setName(fullName);
+                System.out.print("Ngày sinh: ");
+                String dateOfBirth = it.nextLine();
+                stu[i].setBirthDay(dateOfBirth);
+                System.out.print("Giới tính: ");
+                String gender = it.nextLine();
+                stu[i].setGender(gender);
+                System.out.print("CCCD: ");
+                String cccd = it.nextLine();
+                stu[i].setId(cccd);
+                System.out.print("Mã sinh viên: ");
+                String studentId = it.nextLine();
+                stu[i].setStudentID(studentId);
+                System.out.print("Ngành nghề: ");
+                String major = it.nextLine();
+                stu[i].setMajor(major);
+                System.out.print("Tên tài khoản: ");
+                String accountName = it.nextLine();
+                stu[i].setUserName(accountName);
+                System.out.print("Mật khẩu tài khoản: ");
+                String accountPassword = it.nextLine();
+                stu[i].setPassWord(accountPassword);
+                System.out.println("Cập nhật thành công!");
+                stu[i] = new student(fullName, dateOfBirth, gender, studentId, studentId, major, accountName,
+                        accountPassword);
+                System.out.println("Cập nhật thành công!");
+                return;
+            }
+        }
+        System.out.println("Không tìm thấy sinh viên!");
+    }
+
+    public void deleteStudentByStuID(student[] stu) {
+        Scanner it = new Scanner(System.in);
+        System.out.println("Nhập mã sinh viên cần xóa: ");
+        String studentId = it.nextLine();
+        for (int i = 0; i < size; i++) {
+            if (stu[i].getStudentID().equals(studentId)) {
+                for (int j = i; j < size - 1; j++) {
+                    stu[j] = stu[j + 1];
+                }
+                stu[size - 1] = null;
+                size--;
+                System.out.println("Xóa sinh viên thành công!");
+                return;
+            }
+        }
+        System.out.println("Không tìm thấy sinh viên!");
+    }
+
+    public void deleteStudentByStuName(student[] stu) {
+        Scanner it = new Scanner(System.in);
+        System.out.println("Nhập tên sinh viên cần xóa: ");
+        String studentName = it.nextLine();
+        for (int i = 0; i < size; i++) {
+            if (stu[i].getName().equals(studentName)) {
+                for (int j = i; j < size - 1; j++) {
+                    stu[j] = stu[j + 1];
+                }
+                stu[size - 1] = null;
+                size--;
+                System.out.println("Xóa sinh viên thành công!");
+                return;
+            }
+        }
+        System.out.println("Không tìm thấy sinh viên!");
+    }
+
+    public void searchStudentByName(student[] stu) {
+        Scanner it = new Scanner(System.in);
+        System.out.println("Nhập tên sinh viên cần tìm: ");
+        String studentName = it.nextLine();
+        int resultSize = 0;
+        student[] result = new student[stu.length];
+        for (int i = 0; i < size; i++) {
+            if (stu[i].getName().equals(studentName)) {
+                result[resultSize] = stu[i];
+                resultSize++;
+            }
+        }
+        if (resultSize == 0) {
+            System.out.println("Không tìm thấy sinh viên!");
+            return;
+        } else {
+            for (int i = 0; i < resultSize; i++) {
+                System.out.println("Họ tên: " + result[i].getName());
+                System.out.println("Ngày sinh: " + result[i].getBirthDay());
+                System.out.println("Giới tính: " + result[i].getGender());
+                System.out.println("CCCD: " + result[i].getId());
+                System.out.println("Mã sinh viên: " + result[i].getStudentID());
+                System.out.println("Ngành nghề: " + result[i].getMajor());
+                System.out.println("Tên tài khoản: " + result[i].getUserName());
+                System.out.println("Mật khẩu: " + result[i].getPassWord());
+            }
+        }
+    }
+
+    public void searchStudentByStudentId(student[] stu) {
+        Scanner it = new Scanner(System.in);
+        System.out.println("Nhập mã sinh viên cần tìm: ");
+        String studentId = it.nextLine();
+        int resultSize = 0;
+        student[] result = new student[stu.length];
+        for (int i = 0; i < size; i++) {
+            if (stu[i].getStudentID().equals(studentId)) {
+                resultSize++;
+                result[resultSize] = stu[i];
+            }
+        }
+        if (resultSize == 0) {
+            System.out.println("Không tìm thấy sinh viên!");
+            return;
+        } else {
+            for (int i = 0; i < resultSize; i++) {
+                System.out.println("Họ tên: " + result[i].getName());
+                System.out.println("Ngày sinh: " + result[i].getBirthDay());
+                System.out.println("Giới tính: " + result[i].getGender());
+                System.out.println("CCCD: " + result[i].getId());
+                System.out.println("Mã sinh viên: " + result[i].getStudentID());
+                System.out.println("Ngành nghề: " + result[i].getMajor());
+                System.out.println("Tên tài khoản: " + result[i].getUserName());
+                System.out.println("Mật khẩu: " + result[i].getPassWord());
+            }
+        }
+    }
+}
